@@ -1,6 +1,7 @@
 package task.demo.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import javax.validation.constraints.NotNull;
@@ -18,12 +19,16 @@ public class CoinResponse {
     private String symbol;
     @NotNull
     private double price_change_percentage_24h;
+
     @NotNull
     private int current_price;
+
     @NotNull
     private String description;
+
     @NotNull
-    private String trade_url;
+    @JsonProperty("trade_url")
+    private String tradeUrl;
 
     @JsonIgnore
     CoinDetailDto coinDetailDto;
